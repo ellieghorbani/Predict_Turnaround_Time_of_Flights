@@ -29,7 +29,7 @@ Table 1: Total flights were 5483816 which carried out with the fourteen most pop
 
 |Name airline                |Number data|Number columns|Percentage number flights|
 |----------------------------|-----------|--------------|-------------------------| 
-|American Airlines (AA)|673631     |20            |%12.28		          |
+|American Airlines (AA)      |673631     |20            |%12.28		          |
 |Alaska Airlines  (AS)	     |168105     |20            |%3.1         		  |
 |JetBlue Airlines (B6)	     |252122     |20            |%4.6			  |
 |Delta airlines (DL)	     |830012     |20            |%15.1			  |
