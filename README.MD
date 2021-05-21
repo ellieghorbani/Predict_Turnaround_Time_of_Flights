@@ -25,7 +25,7 @@ The datafram is divided into 1217135, 673631, and 554286 tables for WN, AA, and 
 
 
 
-Table 1: Total flights were 5483816 which carried out with the fourteen most popular airlines in the USA in 2015. The dataframe includes 20 columns. 
+**Table 1** Total flights were 5483816 which carried out with the fourteen most popular airlines in the USA in 2015. The dataframe includes 20 columns. 
 
 |Name airline                |Number data|Number columns|Percentage number flights|
 |----------------------------|-----------|--------------|-------------------------| 
@@ -47,8 +47,65 @@ Table 1: Total flights were 5483816 which carried out with the fourteen most pop
 
  By using exploratory data analysis (EDA), we can understand much better the data like their histograms. In figure 1, we just show turnaround time B histograms of WN, AA, and OO airlines. For more EDA, you can follow this link: [link of our code]. Regarding figure 1, all three airlines have two distributions for turnaround time B. It means, first we should make a model to predict each data belong which the distributions. Before applying the supervise machine learning on this problem, we keep 10 percent data of each airline as unseen data. After training, modeling and testing the rest of data, we will apply the best model to predict turnaround time of the unseen data. 
  
+![My image](./images/first_3_histogram.png)
+**Figure 1** Illustrate the TAT histogram of the three most popular airlines in 2015 in the USA.  There are two distributions for each airline. Hence first we confront with a binomial problem to predict the distribution of record data.
 
-![image info](/home/elaheh/Desktop/TAT/flight-delays/Modeling_turnaround_time_May_2021/first_3_histogram.png)
+For prediction turnaround time, there are two steps. First step is to face with a binomial problem to recognize data is either on the distribution1 (turnaround time less than four hours) or the distribution2 (turnaround time more than four hours). Based on the problem is binomial, we apply Logistic Regression, k-Nearest Neighbors, Random Forest Classifier, and Naive Bayes to build the best model.  In the next section, we’ll show results of matrix confusions to compare those models. 
+Second step after categorizing the data based on their TAT are smaller or larger than 4 hours (distributions 1 and 2), we will figure out the best model to predict turnaround time for each distribution. While there is a classification problem in the first step, now we have regression supervised learning. Then we apply the models such as Linear Regression, Gradient Boosting Regressor, and Random Forest Regressor. By calculating the root mean square (RMS) as parameter to realize which model has the best fit for our data.
+### Modeling data to predict the category of data distribution 
+Since there are two distributions, we apply the binomial models such as Logistic Regression, k-Nearest Neighbors, Random Forest Classifier, and Gaussian Naive Bayes to obtain the best model. We find out the best model based on the diffusion matrixes. From the diffusion matrixes we calculated precision, recall, and f score parameters. Ad they are defined 
+Recall = TruePositives / (TruePositives + FalseNegatives) = c11/(c11+c21),
+Precision = TruePositives / (TruePositives + FalsePositives) = c11/(c11+c12),
+and f score is 
+f = 2/(Recall-1 + Precision-1)
+where c is the confusion matrix elements.
+ Figure 2 shows the diffusion matrixes for OO, AA and WN airlines. In table 2, it is compared precision, recall and f score parameters to determinate the best model. By regarding table 2, the best models are Logistic Regression and Random Forest Classifier for OO and AA airlines respectively. For WN airlines, Logistic Regression, and Random Forest Classifier models give the same recall and precision.
+
+![My image](./images/first_3_histogram.png)
+**Figure 2** The diffusion matrix of OO airline (top, left) from Logistic Regression model, AA airline (top, right) from Random Forest Classifier model, WN airline (bottom, left) from Logistic Regression model and WN airline (bottom, right) from Random Forest Classifier model.  0s mentions to distribution 1 and 1s mentions distribution 2.  The yellows, blue areas are percentage of data with the correct predictions in distribution 1 and 2 respectively. The purple areas are percentage of data prediction wrongly  in distribution 1, 2 respectively. 
+
+| | | |Gaussian Naive Bayes|	k-Nearest Neighbors|	Logistic Regression|	Random Forest Classifier|
+|-|-|-|-|-|-|-|
+|OO Airlines |	Distribution 1|	Recall|	0.44|	0.99|	0.99|	1.00|
+| ^  || Precision|	0.93|	0.93	|0.96	|0.95|
+| ^	||F %|	59.73|	95.90|	97.48|	97.43|
+| ^  |Distribution 2|	Recall|	0.28|	0.71|	0.85|	0.79|
+| ^  ||Precision|	0.86|	0.97|	0.99|	1.00|
+| ^  ||F %	|42.24|	81.98	|91.46	|88.26|
+
+
+AA Airlines	
+Distribution 1	Recall	0.35	0.97	0.96	0.99
+		Precision	0.86	0.90	0.93	0.95
+		F %	49.75	93.36	94.46	96.96
+	
+Distribution 2	Recall	0.84	0.71	0.78	0.86
+		Precision	0.33	0.9	0.91	0.99
+		F %	47.38	79.37	84.00	92.04
+
+
+WN Airlines	Distribution 1	Recall	0.41	0.99	0.99	0.99
+		Precision	0.93	0.93	0.99	0.99
+		F %	56.91	95.90	99.00	99.00
+	Distribution 2	Recall	0.85	0.67	0.94	0.94
+		Precision	0.25	0.97	0.99	0.99
+		F %	38.63	79.25	96.43	96.43
+
+
+
+|A |B
+|--|--
+|<td rowspan="2">3</td>1|2
+|4|5
+|6|7 
+
+let result = md.render(`
+|1|1|3|4|5|
+|-|-|-|-|-|
+|1|(1|2|2|6) <br> (10|20|20|60) |
+|1|1|2|2|7|
+|1|4|3|5|5|
+`)
 ## Setup
 To run this project, install it locally using npm:
 
