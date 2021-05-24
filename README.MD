@@ -61,51 +61,145 @@ f = 2/(Recall-1 + Precision-1)
 where c is the confusion matrix elements.
  Figure 2 shows the diffusion matrixes for OO, AA and WN airlines. In table 2, it is compared precision, recall and f score parameters to determinate the best model. By regarding table 2, the best models are Logistic Regression and Random Forest Classifier for OO and AA airlines respectively. For WN airlines, Logistic Regression, and Random Forest Classifier models give the same recall and precision.
 
-![My image](./images/first_3_histogram.png)
-**Figure 2** The diffusion matrix of OO airline (top, left) from Logistic Regression model, AA airline (top, right) from Random Forest Classifier model, WN airline (bottom, left) from Logistic Regression model and WN airline (bottom, right) from Random Forest Classifier model.  0s mentions to distribution 1 and 1s mentions distribution 2.  The yellows, blue areas are percentage of data with the correct predictions in distribution 1 and 2 respectively. The purple areas are percentage of data prediction wrongly  in distribution 1, 2 respectively. 
+<p float="left">
+  <img src="./images/confusion_matrix_OO_LogisticRegression.png" width=300/>
+  <img src="./images/confusion_matrix_AA_RandomForestClassifier.png" width=300/> 
+</p>
 
-| | | |Gaussian Naive Bayes|	k-Nearest Neighbors|	Logistic Regression|	Random Forest Classifier|
-|-|-|-|-|-|-|-|
-|OO Airlines |	Distribution 1|	Recall|	0.44|	0.99|	0.99|	1.00|
-| ^  || Precision|	0.93|	0.93	|0.96	|0.95|
-| ^	||F %|	59.73|	95.90|	97.48|	97.43|
-| ^  |Distribution 2|	Recall|	0.28|	0.71|	0.85|	0.79|
-| ^  ||Precision|	0.86|	0.97|	0.99|	1.00|
-| ^  ||F %	|42.24|	81.98	|91.46	|88.26|
-
-
-AA Airlines	
-Distribution 1	Recall	0.35	0.97	0.96	0.99
-		Precision	0.86	0.90	0.93	0.95
-		F %	49.75	93.36	94.46	96.96
-	
-Distribution 2	Recall	0.84	0.71	0.78	0.86
-		Precision	0.33	0.9	0.91	0.99
-		F %	47.38	79.37	84.00	92.04
+<p float="left">
+  <img src="./images/confusion_matrix_WN_LogisticRegression.png" width = '300' />
+  <img src="./images/confusion_matrix_WN_RandomForestClassifier.png" width ='258' /> 
+</p>
+**Figure 2** The diffusion matrix of OO airline (top, left) from Logistic Regression model, AA airline (top, right) from Random Forest Classifier model, WN airline (bottom, left) from Logistic Regression model and WN airline (bottom, right) from Random Forest Classifier model.  0s mentions to distribution 1 and 1s mentions distribution 2.  The yellows, blue areas are percentage of data with the correct predictions in distribution 1 and 2 re percentage of data prediction wrongly  in distribution 1, 2 respectively. 
 
 
-WN Airlines	Distribution 1	Recall	0.41	0.99	0.99	0.99
-		Precision	0.93	0.93	0.99	0.99
-		F %	56.91	95.90	99.00	99.00
-	Distribution 2	Recall	0.85	0.67	0.94	0.94
-		Precision	0.25	0.97	0.99	0.99
-		F %	38.63	79.25	96.43	96.43
+<table> 
+    <caption>**Table 2**  The comparisons between recall and precision parameters for distributions 1 and 2. The best model based on the comparison of f score is the Logistic Regression and Random Forest Classifier for OO and AA airlines respectively. For WN airlines, Logistic Regression, and Random Forest Classifier models give the same recall and precision. </caption> 
+    <tr> <th></th><th></th><th></th> <th>Gaussian Naive Bayes</th> <th>k-Nearest Neighbors</th> <th>Logistic Regression</th> <th>Random Forest Classifier</th></tr> 
+    <tr> <th rowspan="6">OO Airlines</th> 
+  <th rowspan="3">Distribution 1</th>
+        <td>Recall</td><td>0.44</td><td>0.99</td><td>0.99</td><td>1.00 </tr> <tr> 
+        <td>Precision</td> <td>0.93 </td><td>0.93</td><td>0.96</td><td>0.95</td> </tr> <tr>
+        <td>** F % **</td><td>**59.73**</td><td>**95.90**</td><td>**97.48**</td><td>**97.43**</td> </tr> <tr>
+     <th rowspan="3">Distribution 2</th>
+    <td>Recall</td><td>	0.28</td><td>0.71</td><td>0.85</td><td>0.79</td> </tr> <tr> 
+    <td>Precision</td><td>0.86</td><td>0.97</td><td>0.99</td><td>1.00</td> </tr> <tr>
+        <td>** F % **</td><td>**42.24**</td><td>**81.98**</td><td>**91.46**</td><td>**88.26**</td> </tr> <tr>
+    
+  
+  <tr> <th rowspan="6">AA Airlines</th> 
+    <th rowspan="3">Distribution 1</th>
+        <td>Recall</td><td>0.35</td><td>0.97</td><td>0.96</td><td>0.99 </tr> <tr> 
+        <td>Precision</td> <td>0.86</td><td>0.90</td><td>0.93</td><td>0.95</td> </tr> <tr>
+        <td>** F % **</td><td>**49.75**</td><td>**93.36**</td><td>**94.46**</td><td>**6.96**</td> </tr> <tr>
+     <th rowspan="3">Distribution 2</th>
+    <td>Recall</td><td>	0.28</td><td>0.71</td><td>0.85</td><td>0.79</td> </tr> <tr> 
+    <td>Precision</td><td>0.86</td><td>0.97</td><td>0.99</td><td>1.00</td> </tr> <tr>
+        <td>** F % **</td><td>**42.24**</td><td>**81.98**</td><td>**91.46**</td><td>**88.26**</td> </tr> <tr>
+    
+  <tr> <th rowspan="6">WN Airlines</th> 
+    <th rowspan="3">Distribution 1</th>
+        <td>Recall</td><td>0.41	0.99</td><td>0.99</td><td>0.99 </tr> <tr> 
+        <td>Precision</td> <td>0.93</td><td>0.93</td><td>0.99</td><td>0.99</td> </tr> <tr>
+        <td>** F % **</td><td>**56.91**</td><td>**95.90**</td><td>**99.00**</td><td>**99.00**</td> </tr> <tr>
+     <th rowspan="3">Distribution 2</th>
+    <td>Recall</td><td>	0.85</td><td>0.67</td><td>0.94</td><td>0.94</td> </tr> <tr> 
+    <td>Precision</td><td>0.25</td><td>0.97</td><td>0.99</td><td>0.99</td> </tr> <tr>
+        <td>** F % **</td><td>**38.63**</td><td>**79.25**</td><td>**96.43**</td><td>**96.43**</td> </tr> <tr>
+        
+</table>
 
+The best k-Nearest Neighbors model is obtained at the number of neighbors equals 2 between 1 to 100 neighbors for all three airlines.
+Figure 3 shows the fifteen most important features to make the best models for AA, OO, and WN Airlines. For OO airline: SCHEDULED_DEPARTURE_month_BC, airport_A_CHO                             ,airport_B_IAH, for AA airline: SCHEDULED_DEPARTURE_HOUR_BC, ARRIVAL_HOUR_AB, DEPARTURE_HOUR_AB, for WN airline (Logistic Regression model): airport_B_BWI, SCHEDULED_DEPARTURE_HOUR_BC, airport_B_LAS, and for WN airline (Random Forest Classifier model): SCHEDULED_DEPARTURE_HOUR_BC, ARRIVAL_HOUR_AB, DEPARTURE_HOUR_AB are the three most important features to predict the distributions. The most important features of AA and WN airlines are like each other.   
 
+<p float="center">
+![My image](./images/the_most_important_OO_LogisticRegression.png)
+![My image](./images/the_most_important_AA_RandomForestClassifier.png)
+![My image](./images/the_most_important_WN_LogisticRegression.png)
+![My image](./images/the_most_important_WN_RandomForestClassifier.png)
+</p>
+**Figure 3** The fifteen most important features of OO airline (first figure from top) from Logistic Regression model, AA airline (second figure from top) from Random Forest Classifier model, WN airline (third figure from top) from Logistic Regression model and WN airline (fourth figure from top) from Random Forest Classifier model.  The most important features of AA and WN airlines from Random Forest Classifier model are the same approximately.
 
-|A |B
-|--|--
-|<td rowspan="2">3</td>1|2
-|4|5
-|6|7 
+### Modeling data to predict turnaround time B based on knowing its distribution
+First of all, the seen data is split based on the turnaround time B is less or more than four hours.  There are two distribution categories for the dat. We apply machine learning models such as Linear Regression, Gradient Boosting Regressor, and Random Forest Regressor on each category of data. In the following, we compare ml models together and then we figure out the best ml model for each distribution separately.
+ We split data into two part, train and test data. Here we apply Linear Regression, Gradient Boosting Regressor, and Random Forest Regressor on train data to make a model. Then we predict target of test feature, called predicted data. Finally we calculate the root mean square error (RMSE) to find the best model. Table 3 is the conclusion of the results included RMSE_test_predict of test data and predicted data by the models, RMSE_test_mean of test data and its average, average of train, test and predicted data.
+For sure that the train and test samples are not very different from each other, we calculate average of them. If their average close together, it can help to have a good training. Then we compare them with average predicted data. As we expect if the model is a good fit, the average of the predict data should be around the average of the test data. In table 3, for example in first row of data of OO airlines, distribution1, the average of the predict data is -31.93 while average of the train and test data are 0.871 and 0.870 respectively.  It means the linear regression model does not work well on this data at all. While next row of the table for OO airline and applying Gradient Boosting Regressor averages of train, test and predicted data are 0.781, 0.780 and 0.871 respectively.
+Next note about this table is the compression of RMSE_test_predict and RMSE_test_mean. A model will get a better fit if RMSE_test_predict is less than RMSE_test_mean. Whatever RMSE_test_predict goes to zero, the model is a better fit. For Example for OO airline, RMSE_test_predict is too larger than RMSE_test_mean for Linear regression while the averages of train and test data are the same. It means the test and train data are sampled perfectly and this model is not suitable to fit the data. For this case, RMSE_test_predict of Gradient Boosting Regressor and RMSE_test_predict of Random Forest Regressor are less than RMSE_test_mean and RMSE_test_predict of Gradient Boosting Regressor is the lowest.  It concludes the best model is Gradient Boosting Regressor for this case.
+On that note, Gradient Boosting Regressor model is the best model for distribution1 and distribution2 of OO, AA, and WN airlines.  
+Fig 4 shows histogram of test and predicted target of OO, AA, and WN airlines. The predicted target comes from Gradient Boosting Regressor model as the best model of data.
+We are interested to know what features are more important for fit data with a Gradient Boosting Regressor model. Fig 5 shows the ten most important features of distribution1 and distribution2 for OO, AA, WN airlines. Based on results, ARRIVAL_HOUR_AB, SCHEDULED_DEPARTURE_HOUR_BC, and APPRIVAL_DELAY_AB for distribution1 and SCHEDULED_DEPARTURE_HOUR_BC, APPRIVAL_DELAY_AB, and DEPARTURE_HOUR_AB for distribution2 are the three most important features of OO, AA, and WN airlines.
 
-let result = md.render(`
-|1|1|3|4|5|
-|-|-|-|-|-|
-|1|(1|2|2|6) <br> (10|20|20|60) |
-|1|1|2|2|7|
-|1|4|3|5|5|
-`)
+<table> 
+    <caption>**Table 3**  Comparison Linear Regression, Gradient Boosting Regressor, and Random Forest Regressor models to predict the turnaround time B. Gradient Boosting Regressor model is the best model for distribution1 and distribution2 of OO, AA, and WN airlines.  </caption> 
+    <tr> <th></th><th></th><th>Model</th> <th>RMS test_predict</th> <th>RMS test_mean</th> <th>Mean train</th> <th>Mean test</th><td>Mean test_predict</td></tr> 
+    <tr> <th rowspan="6">OO Airlines</th> 
+    <th rowspan="3">Distribution 1</th>
+        <td>Linear Regression</td><td>8635.009496</td><td>0.583960</td><td>0.870899</td><td>0.870498</td><td>-31.93344</td> </tr> <tr> 
+        <td>Gradient Boosting Regressor</td> <td>0.289393</td><td>0.583960</td><td>0.870899</td><td>0.870498</td><td>0.870577</td> </tr> <tr>
+        <td>Random Forest Regressor</td><td>0.422701</td><td>0.583960</td><td>0.870899</td><td>0.870498</td><td>0.868635</td> </tr> <tr>
+     <th rowspan="3">Distribution 2</th>
+        <td>Linear Regression</td><td>2.244891</td><td>3.444053</td><td>9.724552</td><td>9.702995</td><td>9.707080</td> </tr> <tr> 
+        <td>Gradient Boosting Regressor</td> <td>0.973046</td><td>3.459548</td><td>9.721189</td><td>9.716447</td><td>9.720250</td> </tr> <tr>
+        <td>Random Forest Regressor</td><td>1.058651</td><td>3.459065</td><td>9.723550</td><td>9.707000</td><td>9.714718</td> </tr> <tr>
+    
+  <tr> <th rowspan="6">AA Airlines</th> 
+    <th rowspan="3">Distribution 1</th>
+        <td>Linear Regression</td><td>0.391387</td><td>0.530024</td><td>1.204137</td><td>1.203021</td><td>1.202494</td> </tr> <tr> 
+        <td>Gradient Boosting Regressor</td> <td>0.301565</td><td>0.530024</td><td>1.204137</td><td>1.203021</td><td>1.203819</td> </tr> <tr>
+        <td>Random Forest Regressor</td><td>0.410178</td><td>0.530024</td><td>1.204137</td><td>1.203021</td><td>1.202731</td> </tr> <tr>
+     <th rowspan="3">Distribution 2</th>
+        <td>Linear Regression</td><td>587.676068</td><td>3.986316</td><td>10.466827</td><td>10.488394</td><td>6.158463</td> </tr> <tr> 
+        <td>Gradient Boosting Regressor</td> <td>0.844714</td><td>3.950069</td><td>10.477505</td><td>10.445680</td><td>10.445323</td> </tr> <tr>
+        <td>Random Forest Regressor</td><td>1.016071</td><td>3.961868</td><td>10.471530</td><td>10.469583</td><td>10.470858</td> </tr> <tr>
+   
+  <tr> <th rowspan="6">WN Airlines</th> 
+    <th rowspan="3">Distribution 1</th>
+        <td>Linear Regression</td><td>0.296270</td><td>0.370710</td><td>0.838973</td><td>0.840945</td><td>0.839716</td> </tr> <tr> 
+        <td>Gradient Boosting Regressor</td> <td>0.237668</td><td>0.370710</td><td>0.838973</td><td>0.840945</td><td>0.840734</td> </tr> <tr>
+        <td>Random Forest Regressor</td><td>0.304715</td><td>0.370710</td><td>0.838973</td><td>0.840945</td><td>0.839061</td> </tr> <tr>
+     <th rowspan="3">Distribution 2</th>
+        <td>Linear Regression</td><td>1.804132</td><td>2.943751</td><td>8.757885</td><td>8.822551</td><td>8.788771</td> </tr> <tr> 
+        <td>Gradient Boosting Regressor</td> <td>0.544187</td><td>2.898495</td><td>8.770735</td><td>8.771154</td><td>8.772329</td> </tr> <tr>
+        <td>Random Forest Regressor</td><td>0.645750</td><td>2.917877</td><td>8.770400</td><td>8.772492</td><td>8.771918</td> </tr> <tr>
+    
+</table>
+<p float="left">
+  <img src="./images/histogram_OO_Gradient Boosting Regressor_predict_target_1.png" width=300/>
+  <img src="./images/histogram_OO_Gradient Boosting Regressor_predict_target_2.png" width=300/> 
+</p>
+<p float="left">
+  <img src="./images/histogram_AA_Gradient%20Boosting%20Regressor_predict_target_1.png" width=300/>
+  <img src="./images/histogram_AA_Gradient Boosting Regressor_predict_target_2.png" width=300/> 
+</p>
+<p float="left">
+  <img src="./images/histogram_WN_Gradient%20Boosting%20Regressor_predict_target_1.png" width=300/>
+  <img src="./images/histogram_WN_Gradient Boosting Regressor_predict_target_2.png" width=300/> 
+</p>
+** Figure 4** Left and right sides show histogram of test and predicted target of distribution1 and distribution2 respectively. From top to bottom the histograms are related OO, AA and WN airlines. The predicted target comes from Gradient Boosting Regressor model as the best model that we have.
+
+<p float="left">
+  <img src="./images/the_most_important_OO_Gradient Boosting Regressor_predict_target_1.png" width=300/>
+  <img src="./images/the_most_important_OO_Gradient Boosting Regressor_predict_target_2.png" width=300/> 
+</p>
+<p float="left">
+  <img src="./images/the_most_important_AA_Gradient Boosting Regressor_predict_target_1.png" width=300/>
+  <img src="./images/the_most_important_AA_Gradient Boosting Regressor_predict_target_2.png" width=300/> 
+</p>
+<p float="left">
+  <img src="./images/the_most_important_WN_Gradient Boosting Regressor_predict_target_1.png" width=300/>
+  <img src="./images/the_most_important_WN_Gradient Boosting Regressor_predict_target_2.png" width=300/> 
+</p>
+** Figure 5** The ten most important features of OO, AA, WN airlines. Left and right sides are for distribution1 and distribution2 respectively. From top to bottom we have the most features of OO, AA and WN airlines. These results come from Gradient Boosting Regressor model as the best model that we have.  The three most important features of OO, AA and WN airlines are the same based on their distributions. ARRIVAL_HOUR_AB, SCHEDULED_DEPARTURE_HOUR_BC, and APPRIVAL_DELAY_AB for distribution1 and SCHEDULED_DEPARTURE_HOUR_BC, APPRIVAL_DELAY_AB, and DEPARTURE_HOUR_AB for distribution2 are the three most important features of OO, AA, and WN airlines.
+### Apply the best models on the unseen data
+The unseen data is mixed of two distributions for turnaround time larger or less than four hours. Then we apply two models on data to predict turnaround time, first model to realize the category of turnaround time and next to predict of turnaround time amount. 
+As you can see in table 4.
+<table> 
+    <caption>**Table 4**  Illustrate results of unseen data prediction based on the best ML models found out in previous sections for OO, AA and WN airlines.  </caption> 
+    <tr> <th>Airlines</th><th>Model</th> <th>RMS test_predict</th> <th>RMS real_mean</th> <th>Mean real</th> <th>Mean predict</td></tr> 
+        <td>OO</td><td>Logistic + Gradient Boosting Regressor models</td><td>0.002488</td><td>0.016632</td><td>2.644437</td><td>2.637634</td> </tr> <tr> 
+        <td>AA</td><td>Random Forest Classifier + Gradient Boosting Regressor models</td><td>0.002910</td><td>0.017936</td><td>3.746930</td><td>3.784084</td> </tr> <tr>
+        <td>WN</td><td>Random Forest Classifier + Gradient Boosting Regressor models</td><td>0.000691</td><td>0.0095490</td><td>2.293647</td><td>2.293288</td> </tr> <tr>
+    </table>
 ## Setup
 To run this project, install it locally using npm:
 
