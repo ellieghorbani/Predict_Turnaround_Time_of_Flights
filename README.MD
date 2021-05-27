@@ -1,13 +1,13 @@
 # The turnaround time prediction to schedule flights based on the real flight data of 2015 by using the machine learning technics
 ## Table of contents
-* [1. Introduction](#Introduction)
-* [2. Methodology and data](#Methodology-and-data)
-* [3. Results and discussion](#Results-and-discussion)
-    * [3.1.	Modeling data to predict the category of data distribution ](# 3.1.	Modeling data to predict the category of data distribution )
-    * [3.2.	Modeling data to predict turnaround time B based on knowing its distribution](#3.2.	Modeling data to predict turnaround time B based on knowing its distribution)
-    * [3.3.	Apply the best models on the unseen data](# 3.3.	Apply the best models on the unseen data)
-* [4. Conclusions](# 4 Conclusions )
-* [5. Setup](#setup)
+* [1. Introduction](#1-introduction)
+* [2. Methodology and data](#2-methodology-and-data)
+* [3. Results and discussion](#3-results-and-discussion )
+    - [3.1. Predict TAT classes](#31-predict-tat-classes)
+    - [3.2. Modeling data to predict turnaround time B based on knowing its distribution](#32-modeling-data-to-predict-turnaround-time-b-based-on-knowing-its-distribution)
+    - [3.3. Apply the best models to test data (unseen data)](#33-apply-the-best-models-to-test-data-unseen-data)
+* [4. Conclusions](#4-conclusions) 
+* [5. Setup](#5-setup)
 * [Reference](#reference)
 
 ## 1. Introduction
@@ -86,7 +86,7 @@ s explained we follow two steps to predict the turnaround time. First step is to
 For the Second step, after clustering the data, we have a regression problem and we apply machine learning techniques Linear Regression, Gradient Boosting Regressor, and Random Forest Regressor to make a prediction for turnaround time. We use root mean square (RMS) as the parameter of performance of the models and finding the best model. 
 </p>
 
-### 3.1. Predict TAT classes 
+## 3.1. Predict TAT classes 
 <p style='text-align: justify;'> 
 Since there are two distributions, we apply classification methods Logistic Regression, k-Nearest Neighbors and Random Forest Classifier to obtain the best model. We find out the best model based on precision and recall. <br />
 In figure 2 we show diffusion matrices for OO, AA and WN airlines. In table 2, we compared precision, recall and f score to determinate the best model. Interestingly one machine learning method is not always the winner. Based on our results (table 2), the best model is Logistic Regression and Random Forest Classifier for OO and AA airlines respectively. For WN airlines, Logistic Regression, and Random Forest Classifier gives the same recall and precision. <br />
