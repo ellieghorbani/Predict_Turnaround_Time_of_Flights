@@ -103,31 +103,31 @@ In figure 2 we show diffusion matrices for OO, AA and WN airlines. In table 2, w
   <th rowspan="3">Distribution 1</th>
         <td>Recall</td><td>0.44</td><td>0.99</td><td>0.99</td><td>1.00 </tr> <tr> 
         <td>Precision</td> <td>0.93 </td><td>0.93</td><td>0.96</td><td>0.95</td> </tr> <tr>
-        <td>** F % **</td><td>**59.73**</td><td>**95.90**</td><td>**97.4**</td><td>**97.43**</td> </tr> <tr>
+        <td><b> F % </b></td><td><b>59.73</b></td><td><b>95.90</b></td><td><b>97.4</b></td><td><b>97.43</b></td> </tr> <tr>
      <th rowspan="3">Distribution 2</th>
     <td>Recall</td><td>	0.28</td><td>0.71</td><td>0.85</td><td>0.79</td> </tr> <tr> 
     <td>Precision</td><td>0.86</td><td>0.97</td><td>0.99</td><td>1.00</td> </tr> 
-        <td>** F % **</td><td>**42.24**</td><td>**81.98**</td><td>**91.46**</td><td>**88.26**</td> </tr> <tr>
+        <td><b> F % </b></td><td><b>42.24</b></td><td><b>81.98</b></td><td><b>91.46</b></td><td><b>88.26</b></td> </tr> <tr>
     
   <tr> <th rowspan="6">AA Airlines</th> 
     <th rowspan="3">Distribution 1</th>
         <td>Recall</td><td>0.35</td><td>0.97</td><td>0.96</td><td>0.99 </tr> <tr> 
         <td>Precision</td> <td>0.86</td><td>0.90</td><td>0.93</td><td>0.95</td> </tr> <tr>
-        <td>** F % **</td><td>**49.75**</td><td>**93.36**</td><td>**94.46**</td><td>**6.96**</td> </tr> <tr>
+        <td><b> F % </b></td><td><b>49.75</b></td><td><b>93.36</b></td><td><b>94.46</b></td><td><b>6.96</b></td> </tr> <tr>
      <th rowspan="3">Distribution 2</th>
     <td>Recall</td><td>	0.28</td><td>0.71</td><td>0.85</td><td>0.79</td> </tr> <tr> 
     <td>Precision</td><td>0.86</td><td>0.97</td><td>0.99</td><td>1.00</td> </tr> <tr>
-        <td>** F % **</td><td>**42.24**</td><td>**81.98**</td><td>**91.46**</td><td>**88.26**</td> </tr> <tr>
+        <td><b> F % </b></td><td><b>42.24</b></td><td><b>81.98</b></td><td><b>91.46</b></td><td><b>88.26</b></td> </tr> <tr>
     
   <tr> <th rowspan="6">WN Airlines</th> 
     <th rowspan="3">Distribution 1</th>
         <td>Recall</td><td>0.41	0.99</td><td>0.99</td><td>0.99 </tr> <tr> 
         <td>Precision</td> <td>0.93</td><td>0.93</td><td>0.99</td><td>0.99</td> </tr> <tr>
-        <td>** F % **</td><td>**56.91**</td><td>**95.90**</td><td>**99.00**</td><td>**99.00**</td> </tr> <tr>
+        <td><b> F % </b></td><td><b>56.91</b></td><td><b>95.90</b></td><td><b>99.00</b></td><td><b>99.00</b></td> </tr> <tr>
      <th rowspan="3">Distribution 2</th>
     <td>Recall</td><td>	0.85</td><td>0.67</td><td>0.94</td><td>0.94</td> </tr> <tr> 
     <td>Precision</td><td>0.25</td><td>0.97</td><td>0.99</td><td>0.99</td> </tr> <tr>
-        <td>** F % **</td><td>**38.63**</td><td>**79.25**</td><td>**96.43**</td><td>**96.43**</td> </tr> <tr>
+        <td><b> F % </b></td><td><b>38.63</b></td><td><b>79.25</b></td><td><b>96.43</b></td><td><b>96.43</b></td> </tr> <tr>
         
 </table>
 
@@ -135,14 +135,14 @@ In figure 2 we show diffusion matrices for OO, AA and WN airlines. In table 2, w
 For the k-Nearest Neighbors we try between 1 to 100 neighbors for all three airlines and the best model is obtained with 2 nearest neighbors. <br />
 Figure 3 shows the feature importance from Random Forest for AA, OO, and WN airlines. For these airlines the most important features are scheduled departure month from airport B to C, airports A, arrival time to airport B, scheduled departure from airport B. The most important features of AA and WN airlines are like each other. <br />    
 </p>
-
-<p float="center">
-![My image](./images/the_most_important_OO_LogisticRegression.png)
-![My image](./images/the_most_important_AA_RandomForestClassifier.png)
-![My image](./images/the_most_important_WN_LogisticRegression.png)
-![My image](./images/the_most_important_WN_RandomForestClassifier.png)
+<p align="center">
+  <img src="./images/the_most_important_OO_LogisticRegression.png"><br/>
+  <img src="./images/the_most_important_AA_RandomForestClassifier.png"> <br/>
+  <img src="./images/the_most_important_WN_LogisticRegression.png" ><br/>
+  <img src="./images/the_most_important_WN_RandomForestClassifier.png"><br/>
 </p>
-**Figure 3** The feature importance from Random Forest for airlines OO, AA and WN.  We should note that we use Logistic Regression, Random Forest classifier and, Logistic Regression to find the classes for OO, AA and WN airlines respectively. The features importance for AA and WN airlines are mostly the same.
+
+<b>Figure 3</b> The feature importance from Random Forest for airlines OO, AA and WN.  We should note that we use Logistic Regression, Random Forest classifier and, Logistic Regression to find the classes for OO, AA and WN airlines respectively. The features importance for AA and WN airlines are mostly the same.
 
 ### 3.2. Modeling data to predict turnaround time B based on knowing its distribution
 <p align='justify'> 
@@ -151,7 +151,7 @@ Fig 4 shows histogram of cross validation data and predicted for OO, AA, and WN 
 For the next step we find the feature importance from the Gradient Boosting Regressor model. Fig 5 shows the first ten feature importance of distribution1 and distribution2 for OO, AA, WN airlines. Based on this plots, arrival hour from airport A to B, scheduled departure hour from A to B and arrival delay from A to B are the most important features for distribution1. Scheduled departure hour, delay in arrival from A to B and departure hour from A to B are the most important features for distribution2. <br />
 </p>
 <table> 
-    <caption>**Table 3**  Comparison Linear Regression, Gradient Boosting Regressor, and Random Forest Regressor models to predict the turnaround time B. Gradient Boosting Regressor model is the best model for distribution1 and distribution2 of OO, AA, and WN airlines.  </caption> 
+    <caption><b>Table 3</b>  Comparison Linear Regression, Gradient Boosting Regressor, and Random Forest Regressor models to predict the turnaround time B. Gradient Boosting Regressor model is the best model for distribution1 and distribution2 of OO, AA, and WN airlines.  </caption> 
     <tr> <th></th><th></th><th>Model</th> <th>RMS test_predict</th> <th>RMS test_mean</th> <th>Mean train</th> <th>Mean test</th><td>Mean test_predict</td></tr> 
     <tr> <th rowspan="6">OO Airlines</th> 
     <th rowspan="3">Distribution 1</th>
@@ -185,40 +185,36 @@ For the next step we find the feature importance from the Gradient Boosting Regr
     
 </table>
 
-<p float="left">
-  <img src="./images/histogram_OO_Gradient Boosting Regressor_predict_target_1.png" width=300/>
-  <img src="./images/histogram_OO_Gradient Boosting Regressor_predict_target_2.png" width=300/> 
-</p>
-<p float="left">
-  <img src="./images/histogram_AA_Gradient%20Boosting%20Regressor_predict_target_1.png" width=300/>
-  <img src="./images/histogram_AA_Gradient Boosting Regressor_predict_target_2.png" width=300/> 
-</p>
-<p float="left">
-  <img src="./images/histogram_WN_Gradient%20Boosting%20Regressor_predict_target_1.png" width=300/>
-  <img src="./images/histogram_WN_Gradient Boosting Regressor_predict_target_2.png" width=300/> 
-</p>
-** Figure 4** Left and right sides show the histogram of the test and predicted target of distribution1 and distribution2 respectively. From top to bottom the histograms are related OO, AA and WN airlines. The predicted target comes from the Gradient Boosting Regressor model as the best model that we have.
+<p align="center">
+  <img src="./images/histogram_OO_Gradient Boosting Regressor_predict_target_1.png" width=480 >
+  <img src="./images/histogram_OO_Gradient Boosting Regressor_predict_target_2.png" width=480 > <br/>
 
-<p float="left">
-  <img src="./images/the_most_important_OO_Gradient Boosting Regressor_predict_target_1.png" width=300/>
-  <img src="./images/the_most_important_OO_Gradient Boosting Regressor_predict_target_2.png" width=300/> 
+  <img src="./images/histogram_AA_Gradient%20Boosting%20Regressor_predict_target_1.png" width=480 >
+  <img src="./images/histogram_AA_Gradient Boosting Regressor_predict_target_2.png" width=480 > <br/>
+
+  <img src="./images/histogram_WN_Gradient%20Boosting%20Regressor_predict_target_1.png" width=480 >
+  <img src="./images/histogram_WN_Gradient Boosting Regressor_predict_target_2.png" width=480 > 
 </p>
-<p float="left">
-  <img src="./images/the_most_important_AA_Gradient Boosting Regressor_predict_target_1.png" width=300/>
-  <img src="./images/the_most_important_AA_Gradient Boosting Regressor_predict_target_2.png" width=300/> 
+<b>Figure 4</b> Left and right sides show the histogram of the test and predicted target of distribution1 and distribution2 respectively. From top to bottom the histograms are related OO, AA and WN airlines. The predicted target comes from the Gradient Boosting Regressor model as the best model that we have.
+
+<p align="center">
+  <img src="./images/the_most_important_OO_Gradient Boosting Regressor_predict_target_1.png" width=480/>
+  <img src="./images/the_most_important_OO_Gradient Boosting Regressor_predict_target_2.png" width=480/> 
+
+  <img src="./images/the_most_important_AA_Gradient Boosting Regressor_predict_target_1.png" width=480/>
+  <img src="./images/the_most_important_AA_Gradient Boosting Regressor_predict_target_2.png" width=480/> 
+
+  <img src="./images/the_most_important_WN_Gradient Boosting Regressor_predict_target_1.png" width=480/>
+  <img src="./images/the_most_important_WN_Gradient Boosting Regressor_predict_target_2.png" width=480/> 
 </p>
-<p float="left">
-  <img src="./images/the_most_important_WN_Gradient Boosting Regressor_predict_target_1.png" width=300/>
-  <img src="./images/the_most_important_WN_Gradient Boosting Regressor_predict_target_2.png" width=300/> 
-</p>
-** Figure 5** The ten most important features of OO, AA, WN airlines. Left and right sides are for distribution1 and distribution2 respectively. From top to bottom we have the most features of OO, AA and WN airlines. These results come from the Gradient Boosting Regressor model as the best model that we have.  The three most important features of OO, AA and WN airlines are the same based on their distributions. ARRIVAL_HOUR_AB, SCHEDULED_DEPARTURE_HOUR_BC, and APPRIVAL_DELAY_AB for distribution1 and SCHEDULED_DEPARTURE_HOUR_BC, APPRIVAL_DELAY_AB, and DEPARTURE_HOUR_AB for distribution2 are the three most important features of OO, AA, and WN airlines.
+<b> Figure 5</b> The ten most important features of OO, AA, WN airlines. Left and right sides are for distribution1 and distribution2 respectively. From top to bottom we have the most features of OO, AA and WN airlines. These results come from the Gradient Boosting Regressor model as the best model that we have.  The three most important features of OO, AA and WN airlines are the same based on their distributions. ARRIVAL_HOUR_AB, SCHEDULED_DEPARTURE_HOUR_BC, and APPRIVAL_DELAY_AB for distribution1 and SCHEDULED_DEPARTURE_HOUR_BC, APPRIVAL_DELAY_AB, and DEPARTURE_HOUR_AB for distribution2 are the three most important features of OO, AA, and WN airlines.
 
 ### 3.3. Apply the best models to test data (unseen data)
 <p align='justify'> 
 To measure the performance of our models with unseen data we apply the best model from classification to find the class of each test data and then apply the best regression model to predict the TAT. In Table 4 we summarize our results for OO, AA and WN airlines. Our modeling results clearly outperforms the baseline with much smaller RMSE. 
 </p>
 <table> 
-    <caption>**Table 4**  Illustrate results of unseen data prediction based on the best ML models found out in previous sections for OO, AA and WN airlines.  </caption> 
+    <caption><b>Table 4</b>  Illustrate results of unseen data prediction based on the best ML models found out in previous sections for OO, AA and WN airlines.  </caption> 
     <tr> <th>Airlines</th><th>Model</th> <th>RMS test_predict</th> <th>RMS real_mean</th> <th>Mean real</th> <th>Mean predict</td></tr> 
         <td>OO</td><td>Logistic + Gradient Boosting Regressor models</td><td>0.002488</td><td>0.016632</td><td>2.644437</td><td>2.637634</td> </tr> <tr> 
         <td>AA</td><td>Random Forest Classifier + Gradient Boosting Regressor models</td><td>0.002910</td><td>0.017936</td><td>3.746930</td><td>3.784084</td> </tr> <tr>
@@ -237,7 +233,7 @@ $ npm install
 $ npm start
 ```
 ## Reference
-[1]“Global air traffic - number of flights 2004-2021”, Published by E. Mazareanu, Dec 2, 2020, https://www.statista.com/statistics/564769/airline-industry-number-of-flights/#statisticContainer.
-[2]M. Abd Allah Makhloof, M. Elsayed Waheed, Usama A. El-Raouf Badawi. (2014) Real-time aircraft turnaround operations manager. Production Planning & Control 25:1, pages 2-25.
-[3]https://www.kaggle.com/usdot/flight-delays
-[4]https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp
+[1]“Global air traffic - number of flights 2004-2021”, Published by E. Mazareanu, Dec 2, 2020, https://www.statista.com/statistics/564769/airline-industry-number-of-flights/#statisticContainer.<br/>
+[2]M. Abd Allah Makhloof, M. Elsayed Waheed, Usama A. El-Raouf Badawi. (2014) Real-time aircraft turnaround operations manager. Production Planning & Control 25:1, pages 2-25.<br/>
+[3]https://www.kaggle.com/usdot/flight-delays <br/>
+[4]https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp <br/>
