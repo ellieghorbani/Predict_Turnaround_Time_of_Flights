@@ -17,17 +17,14 @@ Based on the above data, one of the operational goals of the air transport indus
 TAT is generally not pleasant for passengers and costly for airlines. Airlines lose money due to inefficiency in plane boarding as they like to have their planes in the air in the minimum possible time. Therefore predicting the TAT could help airlines and airports to manage their resources more efficiently.<br />
 The aim of this work is to predict the scheduling turnaround time of an aircraft in order to decrease conflicts of flights, maximize the passenger conveniences and optimize cost of air carriers. The details of the data, the exploratory data analysis, and the modeling results of TAT is presented in this work.<br />
 A survey by the U.S. Department of Transportation's Bureau of Transportation Statistics published information on the on-time performance of domestic flights operated by large air carriers. Summary information on the number of on-time, delayed, canceled, and diverted flights is published in the U.S. Department of Transportation's monthly Air Travel Consumer Report and in this dataset of 2015 flight delays and cancellations [3].<br />
-</p>
-<p float="left">
-  <img src="./images/time_cost.png" width=300/>
-  <img src="./images/unpleasant_passenger.png" width=300/> 
-</p>
 
+<p align="center">
+  <img src="./images/time_cost.png" width=350/>
+  <img src="./images/unpleasant_passenger.png" width=350/>
+</p>
 
 ## 2. Methodology and data
-</p>
-<p float="right">
-  <img src="" width=200/>
+<p align="center">
   <img src="./images/TAT_caricature.png" width=300/>
 </p>
 <p align='justify'> 
@@ -51,9 +48,7 @@ After calculating turnaround time B, the time columns are divided into hour, day
 In this study, the database included 5 million recorded flights for the fourteen most popular airlines in the USA in 2015, table 1. We only focus on analyzing data of the airlines with more than 10 percent of total flights. Based on table 1, Airlines WN, AA, and OO with %22, %12, and %10 number flights, respectively, have the most stock of flights.<br />
 The datafram is divided into 1217135, 673631, and 554286 tables for WN, AA, and OO airlines respectively. Every datafram has 20 columns as follow: 'airport_A', 'airport_B', 'airport_C', 'DEPARTURE_DELAY_AB', 'ARRIVAL_DELAY_AB', 'ELAPSED_TIME_AB', 'DISTANCE_AB', 'DISTANCE_BC', 'DEPARTURE_HOUR_AB', 'DEPARTURE_weekday_AB', 'DEPARTURE_day_AB', 'DEPARTURE_month_AB', 'ARRIVAL_HOUR_AB', 'ARRIVAL_weekday_AB', 'ARRIVAL_day_AB',  'ARRIVAL_month_AB', 'SCHEDULED_DEPARTURE_HOUR_BC', 'SCHEDULED_DEPARTURE_weekday_BC', 'SCHEDULED_DEPARTURE_day_BC', and 'SCHEDULED_DEPARTURE_month_BC' as features and ‘turnaround time_B’ as target. <br />
 </p>
-
-
-**Table 1** Total flights were 5483816 which carried out with the fourteen most popular airlines in the USA in 2015. The dataframe includes 20 columns.
+<b>Table 1</b> Total flights were 5483816 which carried out with the fourteen most popular airlines in the USA in 2015. The dataframe includes 20 columns.
 
 |Name airline                |Number data|Number columns|Percentage number flights|
 |----------------------------|-----------|--------------|-------------------------| 
@@ -76,11 +71,13 @@ The datafram is divided into 1217135, 673631, and 554286 tables for WN, AA, and 
 <p align='justify'> 
  To get some insight about the data we perform exploratory data analysis (EDA). In figure 1, we show the histograms of turnaround time for WN, AA, and OO airlines. For more EDA, you can follow this link: [link of our code]. Carefully investigating figure 1, we observe that the TAT for all three airlines is made of two distributions. This gives us hints to make a classification model first to classify the data in two groups for TAT and then develop regression models for predicting TAT for each group. Before we apply our supervised machine learning technique to this problem, we divide the data to train, cross validation and test and for the test data we keep 10 percent of data from each airline which helps us to measure the performance for unseen data. We train our model with  the training and cross validation data and then use test data to predict turnaround time for unseen data. 
  </p>
-![My image](./images/first_3_histogram.png)
-**Figure 1** Illustrate the TAT histogram of the three most popular airlines in 2015 in the USA.  There are two distributions for each airline. Hence first we confront with a binomial problem to predict the distribution of record data.
+ <p align="center">
+  <img src="./images/first_3_histogram.png">
+</p> <br/>
+<b>Figure 1</b> Illustrate the TAT histogram of the three most popular airlines in 2015 in the USA.  There are two distributions for each airline. Hence first we confront with a binomial problem to predict the distribution of record data.
 
-<p style='text-align: justify;'>
-s explained we follow two steps to predict the turnaround time. First step is to build a binary classification model to find if a flight belongs to distribution1 (turnaround time less than four hours) or the distribution2 (turnaround time more than four hours). We apply Logistic Regression, k-Nearest Neighbors and, Random Forest Classifier to this problem. In the next section, we’ll show precision, recall and confusion matrix  to compare the models' results. <br />
+<p align='justify'>
+As explained we follow two steps to predict the turnaround time. First step is to build a binary classification model to find if a flight belongs to distribution1 (turnaround time less than four hours) or the distribution2 (turnaround time more than four hours). We apply Logistic Regression, k-Nearest Neighbors and, Random Forest Classifier to this problem. In the next section, we’ll show precision, recall and confusion matrix  to compare the models' results. <br />
 For the Second step, after clustering the data, we have a regression problem and we apply machine learning techniques Linear Regression, Gradient Boosting Regressor, and Random Forest Regressor to make a prediction for turnaround time. We use root mean square (RMS) as the parameter of performance of the models and finding the best model. 
 </p>
 
@@ -90,32 +87,28 @@ Since there are two distributions, we apply classification methods Logistic Regr
 In figure 2 we show diffusion matrices for OO, AA and WN airlines. In table 2, we compared precision, recall and f score to determinate the best model. Interestingly one machine learning method is not always the winner. Based on our results (table 2), the best model is Logistic Regression and Random Forest Classifier for OO and AA airlines respectively. For WN airlines, Logistic Regression, and Random Forest Classifier gives the same recall and precision. <br />
 </p>
 
-<p float="left">
-  <img src="./images/confusion_matrix_OO_LogisticRegression.png" width=300/>
-  <img src="./images/confusion_matrix_AA_RandomForestClassifier.png" width=300/> 
+<p align="center">
+  <img src="./images/confusion_matrix_OO_LogisticRegression.png" width='400'>
+  <img src="./images/confusion_matrix_AA_RandomForestClassifier.png" width='400'> <br/>
+  <img src="./images/confusion_matrix_WN_LogisticRegression.png" width ='400'>
+  <img src="./images/confusion_matrix_WN_RandomForestClassifier.png" width ='368'>
 </p>
-
-<p float="left">
-  <img src="./images/confusion_matrix_WN_LogisticRegression.png" width = '300' />
-  <img src="./images/confusion_matrix_WN_RandomForestClassifier.png" width ='258' /> 
-</p>
-**Figure 2** The diffusion matrix of OO airline (top, left) from Logistic Regression model, AA airline (top, right) from Random Forest Classifier model, WN airline (bottom, left) from Logistic Regression model and WN airline (bottom, right) from Random Forest Classifier model.  0s mentions to distribution 1 and 1s mentions distribution 2.  The yellows, blue areas are percentage of data with the correct predictions in distribution 1 and 2 re percentage of data prediction wrongly  in distribution 1, 2 respectively
+<b>Figure 2</b> The diffusion matrix of OO airline (top, left) from Logistic Regression model, AA airline (top, right) from Random Forest Classifier model, WN airline (bottom, left) from Logistic Regression model and WN airline (bottom, right) from Random Forest Classifier model.  0s mentions to distribution 1 and 1s mentions distribution 2.  The yellows, blue areas are percentage of data with the correct predictions in distribution 1 and 2 re percentage of data prediction wrongly  in distribution 1, 2 respectively.<br/>
 
 
 <table> 
-    <caption>**Table 2**  The comparisons between recall and precision parameters for distributions 1 and 2. The best model based on the comparison of f score is the Logistic Regression and Random Forest Classifier for OO and AA airlines respectively. For WN airlines, Logistic Regression, and Random Forest Classifier models give the same recall and precision. </caption> 
+    <caption><b>Table 2</b>  The comparisons between recall and precision parameters for distributions 1 and 2. The best model based on the comparison of f score is the Logistic Regression and Random Forest Classifier for OO and AA airlines respectively. For WN airlines, Logistic Regression, and Random Forest Classifier models give the same recall and precision. </caption> 
     <tr> <th></th><th></th><th></th> <th>Gaussian Naive Bayes</th> <th>k-Nearest Neighbors</th> <th>Logistic Regression</th> <th>Random Forest Classifier</th></tr> 
-    <tr> <th rowspan="6">OO Airlines</th> 
+    <tr> <th rowspan="6">OO Airlines</th>  
   <th rowspan="3">Distribution 1</th>
         <td>Recall</td><td>0.44</td><td>0.99</td><td>0.99</td><td>1.00 </tr> <tr> 
         <td>Precision</td> <td>0.93 </td><td>0.93</td><td>0.96</td><td>0.95</td> </tr> <tr>
-        <td>** F % **</td><td>**59.73**</td><td>**95.90**</td><td>**97.48**</td><td>**97.43**</td> </tr> <tr>
+        <td>** F % **</td><td>**59.73**</td><td>**95.90**</td><td>**97.4**</td><td>**97.43**</td> </tr> <tr>
      <th rowspan="3">Distribution 2</th>
     <td>Recall</td><td>	0.28</td><td>0.71</td><td>0.85</td><td>0.79</td> </tr> <tr> 
-    <td>Precision</td><td>0.86</td><td>0.97</td><td>0.99</td><td>1.00</td> </tr> <tr>
+    <td>Precision</td><td>0.86</td><td>0.97</td><td>0.99</td><td>1.00</td> </tr> 
         <td>** F % **</td><td>**42.24**</td><td>**81.98**</td><td>**91.46**</td><td>**88.26**</td> </tr> <tr>
     
-  
   <tr> <th rowspan="6">AA Airlines</th> 
     <th rowspan="3">Distribution 1</th>
         <td>Recall</td><td>0.35</td><td>0.97</td><td>0.96</td><td>0.99 </tr> <tr> 
