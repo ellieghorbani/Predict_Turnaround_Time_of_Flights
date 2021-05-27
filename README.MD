@@ -222,8 +222,7 @@ To measure the performance of our models with unseen data we apply the best mode
     </table>
 
 ## 4. Conclusions
-
-this is [1] says.
+In this paper we predict turnaround time based on the flight data of 2015 for fourteen airlines as the most popular airlines in the USA. For this prediction, we apply the supervised learning techniques. First interesting thing is to observe two distributions in the turnaround time histogram based on less and more than four hours. The Random Forest Classifier model is the best model to predict distributions for this data and … is the most important feature. In the next step, due to having huge data, we divide data into sub data based on their airlines. The gradient boosting model is the best model to predict turnaround time for all sub data. For this fitting the most important features are ….
 ## 5. Setup
 To run this project, install it locally using npm:
 
@@ -233,7 +232,7 @@ $ npm install
 $ npm start
 ```
 ## Reference
-[1]“Global air traffic - number of flights 2004-2021”, Published by E. Mazareanu, Dec 2, 2020, https://www.statista.com/statistics/564769/airline-industry-number-of-flights/#statisticContainer.<br/>
-[2]M. Abd Allah Makhloof, M. Elsayed Waheed, Usama A. El-Raouf Badawi. (2014) Real-time aircraft turnaround operations manager. Production Planning & Control 25:1, pages 2-25.<br/>
-[3]https://www.kaggle.com/usdot/flight-delays <br/>
-[4]https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp <br/>
+[1] E. Mazareanu,“Global air traffic - number of flights 2004-2021”, Dec 2, 2020. (https://www.statista.com/statistics/564769/airline-industry-number-of-flights/#statisticContainer).<br/>
+[2] M. A. Makhloof, M. E. Waheed, U. A. Badawi, "Real-time aircraft turnaround operations manager", Production Planning & Control 25:1, pages 2-25, 2014.<br/>
+[3] https://www.kaggle.com/usdot/flight-delays <br/>
+[4] https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp <br/>
