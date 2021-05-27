@@ -20,7 +20,7 @@ A survey by the U.S. Department of Transportation's Bureau of Transportation Sta
 
 <p align="center">
   <img src="./images/time_cost.png" width=350/>
-  <img src="./images/unpleasant_passenger.png" width=350/>
+  <img src="./images/jimbo.png" width=350/>
 </p>
 
 ## 2. Methodology and data
@@ -222,7 +222,7 @@ To measure the performance of our models with unseen data we apply the best mode
     </table>
 
 ## 4. Conclusions
-In this paper we predict turnaround time based on the flight data of 2015 for fourteen airlines as the most popular airlines in the USA. For this prediction, we apply the supervised learning techniques. First interesting thing is to observe two distributions in the turnaround time histogram based on less and more than four hours. The Random Forest Classifier model is the best model to predict distributions for this data and … is the most important feature. In the next step, due to having huge data, we divide data into sub data based on their airlines. The gradient boosting model is the best model to predict turnaround time for all sub data. For this fitting the most important features are ….
+In this project, we predict turnaround time based on the flight data of 2015 for fourteen airlines as the most popular airlines in the USA. For this prediction, we apply the supervised learning techniques. First interesting thing is to observe two distributions in the turnaround time histogram based on less and more than four hours. The Random Forest Classifier model is the best model to predict distributions for this data and … is the most important feature. In the next step, due to having huge data, we divide data into sub data based on their airlines. The gradient boosting model is the best model to predict turnaround time for all sub data. For this fitting the most important features are ….
 ## 5. Setup
 To run this project, install it locally using npm:
 
