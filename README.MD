@@ -3,9 +3,10 @@
 * [1. Introduction](#1-introduction)
 * [2. Methodology and data](#2-methodology-and-data)
 * [3. Results and discussion](#3-results-and-discussion )
-    - [3.1. Predict TAT classes](#31-predict-tat-classes)
-    - [3.2. Modeling data to predict turnaround time B based on knowing its distribution](#32-modeling-data-to-predict-turnaround-time-b-based-on-knowing-its-distribution)
-    - [3.3. Apply the best models to test data (unseen data)](#33-apply-the-best-models-to-test-data-unseen-data)
+    - [3.1. Exploratory data analysis (EDA)](#31-Exploratory-data-analysis-EDA)
+    - [3.2. Predict TAT classes](#32-predict-tat-classes)
+    - [3.3. Modeling data to predict turnaround time B based on knowing its distribution](#33-modeling-data-to-predict-turnaround-time-b-based-on-knowing-its-distribution)
+    - [3.4. Apply the best models to test data (unseen data)](#34-apply-the-best-models-to-test-data-unseen-data)
 * [4. Conclusions](#4-conclusions) 
 * [5. Setup](#5-setup)
 * [Reference](#reference)
@@ -17,15 +18,16 @@ Based on the above data, one of the operational goals of the air transport indus
 TAT is generally not pleasant for passengers and costly for airlines. Airlines lose money due to inefficiency in plane boarding as they like to have their planes in the air in the minimum possible time. Therefore predicting the TAT could help airlines and airports to manage their resources more efficiently.<br />
 The aim of this work is to predict the scheduling turnaround time of an aircraft in order to decrease conflicts of flights, maximize the passenger conveniences and optimize cost of air carriers. The details of the data, the exploratory data analysis, and the modeling results of TAT is presented in this work.<br />
 A survey by the U.S. Department of Transportation's Bureau of Transportation Statistics published information on the on-time performance of domestic flights operated by large air carriers. Summary information on the number of on-time, delayed, canceled, and diverted flights is published in the U.S. Department of Transportation's monthly Air Travel Consumer Report and in this dataset of 2015 flight delays and cancellations [3].<br />
-
 <p align="center">
-  <img src="./images/time_cost.png" width=350/>
-  <img src="./images/jimbo.png" width=350/>
+  <img src="./images/time_money.jpg" width=350/>
+  <img src="./images/jimbo.png" width=350/><br/>
+ <caption> Left: https://www.needpix.com, Right: https://sharetv.com </caption>
 </p>
 
 ## 2. Methodology and data
 <p align="center">
-  <img src="./images/TAT_caricature.png" width=300/>
+  <img src="./images/TAT_caricature.png" width=300/><br/>
+<caption> https://www.depositphotos.com</caption>
 </p>
 <p align='justify'> 
 In this work we used the data published by the U.S. Department of Transportation's (DOT) Bureau of Transportation Statistics. They track the on-time performance of domestic flights operated by large air carriers in the USA.  [4]. <br />
@@ -69,19 +71,29 @@ The datafram is divided into 1217135, 673631, and 554286 tables for WN, AA, and 
 |Total Airlines in 2015	     |5483816    |20  		|%100			  |
 
 <p align='justify'> 
- To get some insight about the data we perform exploratory data analysis (EDA). In figure 1, we show the histograms of turnaround time for WN, AA, and OO airlines. For more EDA, you can follow this link: [link of our code]. Carefully investigating figure 1, we observe that the TAT for all three airlines is made of two distributions. This gives us hints to make a classification model first to classify the data in two groups for TAT and then develop regression models for predicting TAT for each group. Before we apply our supervised machine learning technique to this problem, we divide the data to train, cross validation and test and for the test data we keep 10 percent of data from each airline which helps us to measure the performance for unseen data. We train our model with  the training and cross validation data and then use test data to predict turnaround time for unseen data. 
+ Before we apply our supervised machine learning technique to this problem, we divide the data to train, cross validation and test and for the test data we keep 10 percent of data from each airline which helps us to measure the performance for unseen data. We train our model with  the training and cross validation data and then use test data to predict turnaround time for unseen data.<br/> 
+ </p>
+<p align='justify'>
+As explained we follow three steps to predict the turnaround time. First step is to explorate date as exploratory data analysis (EDA). <br/>
+Second step is to build a binary classification model to find if a flight belongs to distribution1 (turnaround time less than four hours) or the distribution2 (turnaround time more than four hours). We apply Logistic Regression, k-Nearest Neighbors and, Random Forest Classifier to this problem. In the next section, we’ll show precision, recall and confusion matrix  to compare the models' results. <br />
+For the third step, after clustering the data, we have a regression problem and we apply machine learning techniques Linear Regression, Gradient Boosting Regressor, and Random Forest Regressor to make a prediction for turnaround time. We use root mean square (RMS) as the parameter of performance of the models and finding the best model. 
+</p>
+
+## 3.1. Exploratory data analysis (EDA) 
+<p align='justify'> 
+ To get some insight about the data we perform exploratory data analysis (EDA). In figure 1, we show the histograms of turnaround time for WN, AA, and OO airlines. For more EDA, you can follow this link: [link of our code]. Carefully investigating figure 1, we observe that the TAT for all three airlines is made of two distributions. This gives us hints to make a classification model first to classify the data in two groups for TAT and then develop regression models for predicting TAT for each group. 
  </p>
  <p align="center">
   <img src="./images/first_3_histogram.png">
 </p> <br/>
 <b>Figure 1</b> Illustrate the TAT histogram of the three most popular airlines in 2015 in the USA.  There are two distributions for each airline. Hence first we confront with a binomial problem to predict the distribution of record data.
 
-<p align='justify'>
-As explained we follow two steps to predict the turnaround time. First step is to build a binary classification model to find if a flight belongs to distribution1 (turnaround time less than four hours) or the distribution2 (turnaround time more than four hours). We apply Logistic Regression, k-Nearest Neighbors and, Random Forest Classifier to this problem. In the next section, we’ll show precision, recall and confusion matrix  to compare the models' results. <br />
-For the Second step, after clustering the data, we have a regression problem and we apply machine learning techniques Linear Regression, Gradient Boosting Regressor, and Random Forest Regressor to make a prediction for turnaround time. We use root mean square (RMS) as the parameter of performance of the models and finding the best model. 
-</p>
+<p align="center">
+  <img src="./images/EDA_ARRIVAL_TIME_AB_WN_day_time%20(h).png">
+</p> <br/>
+<b>Figure 1</b> Illustrate the TAT histogram of the three most popular airlines in 2015 in the USA.  There are two distributions for each airline. Hence first we confront with a binomial problem to predict the distribution of record data.
 
-## 3.1. Predict TAT classes 
+## 3.2. Predict TAT classes 
 <p align='justify'>  
 Since there are two distributions, we apply classification methods Logistic Regression, k-Nearest Neighbors and Random Forest Classifier to obtain the best model. We find out the best model based on precision and recall. <br />
 In figure 2 we show diffusion matrices for OO, AA and WN airlines. In table 2, we compared precision, recall and f score to determinate the best model. Interestingly one machine learning method is not always the winner. Based on our results (table 2), the best model is Logistic Regression and Random Forest Classifier for OO and AA airlines respectively. For WN airlines, Logistic Regression, and Random Forest Classifier gives the same recall and precision. <br />
@@ -144,7 +156,7 @@ Figure 3 shows the feature importance from Random Forest for AA, OO, and WN airl
 
 <b>Figure 3</b> The feature importance from Random Forest for airlines OO, AA and WN.  We should note that we use Logistic Regression, Random Forest classifier and, Logistic Regression to find the classes for OO, AA and WN airlines respectively. The features importance for AA and WN airlines are mostly the same.
 
-### 3.2. Modeling data to predict turnaround time B based on knowing its distribution
+### 3.3. Modeling data to predict turnaround time B based on knowing its distribution
 <p align='justify'> 
 For the next step we apply Linear Regression, Gradient Boosting Regressor, and Random Forest Regressor to each class. We apply each of these techniques to the training data and then apply the trained model to the cross validation data to find the best model. To evaluate the models we use the root mean square error (RMSE). In Table 3 we show the RMSE results for cross validation and base model. We use the mean as the base model. Also in the table we show the mean of cross validation data and mean of predicted cross validation data.  This results show that Linear Regression is not a good model for OO airline since the predicted RMSE is much bigger than the baseline. However, Gradient Boosting Regressor gives much better results with predicted RMSE almost half the baseline RMSE. <br /> 
 Fig 4 shows histogram of cross validation data and predicted for OO, AA, and WN airlines. The predicted target comes from the Gradient Boosting Regressor model as the best model.
@@ -209,7 +221,7 @@ For the next step we find the feature importance from the Gradient Boosting Regr
 </p>
 <b> Figure 5</b> The ten most important features of OO, AA, WN airlines. Left and right sides are for distribution1 and distribution2 respectively. From top to bottom we have the most features of OO, AA and WN airlines. These results come from the Gradient Boosting Regressor model as the best model that we have.  The three most important features of OO, AA and WN airlines are the same based on their distributions. ARRIVAL_HOUR_AB, SCHEDULED_DEPARTURE_HOUR_BC, and APPRIVAL_DELAY_AB for distribution1 and SCHEDULED_DEPARTURE_HOUR_BC, APPRIVAL_DELAY_AB, and DEPARTURE_HOUR_AB for distribution2 are the three most important features of OO, AA, and WN airlines.
 
-### 3.3. Apply the best models to test data (unseen data)
+### 3.4. Apply the best models to test data (unseen data)
 <p align='justify'> 
 To measure the performance of our models with unseen data we apply the best model from classification to find the class of each test data and then apply the best regression model to predict the TAT. In Table 4 we summarize our results for OO, AA and WN airlines. Our modeling results clearly outperforms the baseline with much smaller RMSE. 
 </p>
