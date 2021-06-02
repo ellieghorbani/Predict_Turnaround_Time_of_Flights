@@ -20,14 +20,14 @@ The aim of this work is to predict the scheduling turnaround time of an aircraft
 A survey by the U.S. Department of Transportation's Bureau of Transportation Statistics published information on the on-time performance of domestic flights operated by large air carriers. Summary information on the number of on-time, delayed, canceled, and diverted flights is published in the U.S. Department of Transportation's monthly Air Travel Consumer Report and in this dataset of 2015 flight delays and cancellations [3].<br />
 <p align="center">
   <img src="./images/time_money.jpg" width=350/>
-  <img src="./images/jimbo.png" width=350/><br/>
+  <img src="./images/trunaround_time.png" width=550/><br/>
  <caption> Left: https://www.needpix.com, Right: https://sharetv.com </caption>
 </p>
 
 ## 2. Methodology and data
 <p align="center">
-  <img src="./images/TAT_caricature.png" width=300/><br/>
-<caption> https://www.depositphotos.com</caption>
+  <img src="./images/methodology_data.jpg" width=500/><br/>
+<caption> https://www.azcentral.com    https://www.depositphotos.com</caption>
 </p>
 <p align='justify'> 
 In this work we used the data published by the U.S. Department of Transportation's (DOT) Bureau of Transportation Statistics. They track the on-time performance of domestic flights operated by large air carriers in the USA.  [4]. <br />
@@ -86,13 +86,22 @@ For the third step, after clustering the data, we have a regression problem and 
  <p align="center">
   <img src="./images/first_3_histogram.png">
 </p> <br/>
-<b>Figure 1</b> Illustrate the TAT histogram of the three most popular airlines in 2015 in the USA.  There are two distributions for each airline. Hence first we confront with a binomial problem to predict the distribution of record data.
+<b>Figure 1.1</b> Illustrate the TAT histogram of the three most popular airlines in 2015 in the USA.  There are two distributions for each airline. Hence first we confront with a binomial problem to predict the distribution of record data.
 
 <p align="center">
-  <img src="./images/EDA_ARRIVAL_TIME_AB_WN_day_time%20(h).png">
+  <img src="./images/EDA_ARRIVAL_TIME_AB_Day time (h).png">
 </p> <br/>
-<b>Figure 1</b> Illustrate the TAT histogram of the three most popular airlines in 2015 in the USA.  There are two distributions for each airline. Hence first we confront with a binomial problem to predict the distribution of record data.
+<b>Figure 1.2</b> Illustrate the arrival time from airports A to B of OO, AA and WN airlines (from left to right). Blue points and light blue lines show average and interval of Turnaround time via time of day respectively.  Red points is number flights during the day.
 
+<p align="center">
+  <img src="./images/EDA_DEPARTURE_TIME_AB_Day time (h).png">
+</p> <br/>
+<b>Figure 1.3</b> Illustrate the departure time from airports A to B of OO, AA and WN airlines (from left to right). Blue points and light blue lines show average and interval of Turnaround time via time of day respectively.  Red points is number flights during the day.
+
+<p align="center">
+  <img src="./images/EDA_SCHEDULED_DEPARTURE_BC_Day time (h).png">
+</p> <br/>
+<b>Figure 1.4</b> Illustrate the scheduled departure time from airports B to C of OO, AA and WN airlines (from left to right). Blue points and light blue lines show average and interval of Turnaround time via time of day respectively.  Red points is number flights during the day.
 ## 3.2. Predict TAT classes 
 <p align='justify'>  
 Since there are two distributions, we apply classification methods Logistic Regression, k-Nearest Neighbors and Random Forest Classifier to obtain the best model. We find out the best model based on precision and recall. <br />
