@@ -3,6 +3,7 @@ import codes.step_2_convert_timecolumns_to_standard_time
 import codes.step_3_choose_features_and_define_target
 import codes.step_4_EDA_1                         
 import codes.step_4_EDA_2                         
+import codes.step_4_EDA_of_AA_OO_WN_3
 import codes.step_5_EDA_and_separate_airline_data 
 airline = open("input",'r')#input('Please choose one of airlines: AA, OO, WN:')
 if airline == airline.readline():
