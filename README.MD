@@ -19,7 +19,7 @@ TAT is generally not pleasant for passengers and costly for airlines. Airlines l
 The aim of this work is to predict the scheduling turnaround time of an aircraft in order to decrease conflicts of flights, maximize the passenger conveniences and optimize cost of air carriers. The details of the data, the exploratory data analysis, and the modeling results of TAT is presented in this work.<br />
 A survey by the U.S. Department of Transportation's Bureau of Transportation Statistics published information on the on-time performance of domestic flights operated by large air carriers. Summary information on the number of on-time, delayed, canceled, and diverted flights is published in the U.S. Department of Transportation's monthly Air Travel Consumer Report and in this dataset of 2015 flight delays and cancellations [3].<br />
 <p align="center">
-  <img src="./images/time_money.jpg" width=350/>
+  <img src="./images/time_money.jpg" width=300/>
   <img src="./images/trunaround_time.png" width=550/><br/>
  <caption> Left: https://www.needpix.com, Right: https://sharetv.com </caption>
 </p>
