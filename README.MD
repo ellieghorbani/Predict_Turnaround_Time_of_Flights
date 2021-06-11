@@ -72,7 +72,7 @@ In table 1, we show the percentage number of flights for different airlines. In 
  Before we apply our supervised machine learning technique to this problem, we divide the data to train, cross validation and test and for the test data we keep 10 percent of data from each airline which helps us to measure the performance for unseen data. We train our model with  the training and cross validation data and then use test data to predict turnaround time for unseen data.<br/> 
  </p>
  
-## 3. Exploratory data analysis (EDA) 
+## 3. Exploratory data analysis (EDA)
 <p align='justify'> 
  To get some insight about the data we perform exploratory data analysis (EDA). In figure 3, we show the histograms of turnaround time for WN, AA, and OO airlines. Figures 4, 5 and 6 show inreval and average of turnaround time and number arrival flights from airport A to B, departure flights from airport A to B and scheduled departure flights from airport B to C via day time for OO, AA and WN airlines respectively. <br/>
 In figure 4, all of the airlines have the maximum turnaround time around 10 pm based on the arrival time from airports A to B. Between 4 am to 6 pm the turnaround time is more or less constante. From 6 pm to 10 pm, turnaround time increases up to 6 hours. Then from 10 pm to 4 am of next day turnaround time decreases. The inreval turnaround time is shoter between 1 am to 6 am than other times of day. we expected that turnaround time goes up where the airport is crowded and there are the most number flights in  the airport but this figure showes revere results and turnaround time is independent of number of flights. The number of flights depend the arrival time and their airline. Forexample during day, there is more number of flights for all airlines. Airline WN has the most of flights.  <br/>
@@ -100,14 +100,16 @@ Carefully investigating figure 3, we observe that the TAT for all three airlines
 <p align="center">
   <img src="./images/EDA_SCHEDULED_DEPARTURE_BC_Day time (h).png">
 </p> <br/>
-<b>Figure 6</b> Illustrate the scheduled departure time from airports B to C of OO, AA and WN airlines (from left to right). Blue points and light blue lines show average and interval of Turnaround time via time of day respectively.  Red points is number flights during the day. 
+<b>Figure 6</b> Illustrate the scheduled departure time from airports B to C of OO, AA and WN airlines (from left to right). Blue points and light blue lines show average and interval of Turnaround time via time of day respectively.  Red points is number flights during the day. <br/> 
 </p>
+
 ## 4. Modeling and results
 <p align='justify'>
 As explained we follow three steps to predict the turnaround time. First step is to explorate date as exploratory data analysis (EDA). <br/>
 Second step is to build a binary classification model to find if a flight belongs to distribution1 (turnaround time less than four hours) or the distribution2 (turnaround time more than four hours). We apply Logistic Regression, k-Nearest Neighbors and, Random Forest Classifier to this problem. In the next section, we’ll show precision, recall and confusion matrix  to compare the models' results. <br />
-For the third step, after clustering the data, we have a regression problem and we apply machine learning techniques Linear Regression, Gradient Boosting Regressor, and Random Forest Regressor to make a prediction for turnaround time. We use root mean square (RMS) as the parameter of performance of the models and finding the best model. 
+For the third step, after clustering the data, we have a regression problem and we apply machine learning techniques Linear Regression, Gradient Boosting Regressor, and Random Forest Regressor to make a prediction for turnaround time. We use root mean square (RMS) as the parameter of performance of the models and finding the best model. <br/>
 </p>
+
 ### 4.1. Predict turnaround time classes 
 <p align='justify'>  
 Since there are two distributions, we apply classification methods Logistic Regression, k-Nearest Neighbors and Random Forest Classifier to obtain the best model. We find out the best model based on precision and recall. <br />
