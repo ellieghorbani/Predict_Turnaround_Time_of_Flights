@@ -1,14 +1,14 @@
-# The turnaround time prediction to schedule flights based on the real flight data of 2015 by using the machine learning technics
+# Flights Turnaround Time Prediction
 ## Table of contents
 * [1. Introduction](#1-introduction)
 * [2. Methodology and data](#2-methodology-and-data)
-* [3. Analysis data and result](#3-analysis-data-and-result )
-    - [3.1. Exploratory data analysis (EDA)](#31-Exploratory-data-analysis-EDA)
-    - [3.2. Predict turnaround time classes](#32-predict-turnaround-time-classes)
-    - [3.3. Modeling data to predict turnaround time based on knowing its distribution](#33-modeling-data-to-predict-turnaround-time-based-on-knowing-its-distribution)
-    - [3.4. Apply the best models to test data (unseen data)](#34-apply-the-best-models-to-test-data-unseen-data)
-* [4. Conclusions](#4-conclusions) 
-* [5. Setup](#5-setup)
+* [3. Exploratory data analysis (EDA)](#3-exploratory-data-analysis-EDA)
+* [4. Modeling and results](#4-modeling-and-results)
+    - [4.1. Predict turnaround time classes](#41-predict-turnaround-time-classes)
+    - [4.2. Modeling data to predict turnaround time based on knowing its distribution](#42-modeling-data-to-predict-turnaround-time-based-on-knowing-its-distribution)
+    - [4.3. Apply the best models to test data (unseen data)](#43-apply-the-best-models-to-test-data-unseen-data)
+* [5. Conclusions](#4-conclusions) 
+* [6. Setup](#5-setup)
 * [Reference](#reference)
 
 ## 1. Introduction
@@ -45,10 +45,8 @@ To avoid leakage we drop columns related to the departure information from airpo
 After calculating turnaround time B, the time columns are divided into hour, day, month, and day of week for EDA. <br />
 </p>
 
-## 3. Analysis data and result
 <p align='justify'> 
-In this study, the database included 5 million recorded flights for the fourteen most popular airlines in the USA in 2015, table 1. We only focus on analyzing data of the airlines with more than 10 percent of total flights. Based on table 1, Airlines WN, AA, and OO with %22, %12, and %10 number flights, respectively, have the most stock of flights.<br />
-The datafram is divided into 1217135, 673631, and 554286 tables for WN, AA, and OO airlines respectively. Every datafram has 20 columns as follow: 'airport_A', 'airport_B', 'airport_C', 'DEPARTURE_DELAY_AB', 'ARRIVAL_DELAY_AB', 'ELAPSED_TIME_AB', 'DISTANCE_AB', 'DISTANCE_BC', 'DEPARTURE_HOUR_AB', 'DEPARTURE_weekday_AB', 'DEPARTURE_day_AB', 'DEPARTURE_month_AB', 'ARRIVAL_HOUR_AB', 'ARRIVAL_weekday_AB', 'ARRIVAL_day_AB',  'ARRIVAL_month_AB', 'SCHEDULED_DEPARTURE_HOUR_BC', 'SCHEDULED_DEPARTURE_weekday_BC', 'SCHEDULED_DEPARTURE_day_BC', and 'SCHEDULED_DEPARTURE_month_BC' as features and ‘turnaround time_B’ as target. <br />
+In table 1, we show the percentage number of flights for different airlines. In this study we only focuse on airlines with more than 10 percent of total flights. Based on table 1, Airlines WN, AA, and OO with %22, %12, and %10 number flights, respectively, have the most stock of flights. The datafram is divided into 1217135, 673631, and 554286 tables for WN, AA, and OO airlines respectively.  <br />
 </p>
 <table> 
     <caption><b>Table 1</b>  Total flights were 5483816 which carried out with the fourteen most popular airlines in the USA in 2015. The dataframe includes 20 columns.  </caption> 
@@ -73,13 +71,8 @@ The datafram is divided into 1217135, 673631, and 554286 tables for WN, AA, and 
 <p align='justify'> 
  Before we apply our supervised machine learning technique to this problem, we divide the data to train, cross validation and test and for the test data we keep 10 percent of data from each airline which helps us to measure the performance for unseen data. We train our model with  the training and cross validation data and then use test data to predict turnaround time for unseen data.<br/> 
  </p>
-<p align='justify'>
-As explained we follow three steps to predict the turnaround time. First step is to explorate date as exploratory data analysis (EDA). <br/>
-Second step is to build a binary classification model to find if a flight belongs to distribution1 (turnaround time less than four hours) or the distribution2 (turnaround time more than four hours). We apply Logistic Regression, k-Nearest Neighbors and, Random Forest Classifier to this problem. In the next section, we’ll show precision, recall and confusion matrix  to compare the models' results. <br />
-For the third step, after clustering the data, we have a regression problem and we apply machine learning techniques Linear Regression, Gradient Boosting Regressor, and Random Forest Regressor to make a prediction for turnaround time. We use root mean square (RMS) as the parameter of performance of the models and finding the best model. 
-</p>
-
-## 3.1. Exploratory data analysis (EDA) 
+ 
+## 3. Exploratory data analysis (EDA) 
 <p align='justify'> 
  To get some insight about the data we perform exploratory data analysis (EDA). In figure 3, we show the histograms of turnaround time for WN, AA, and OO airlines. Figures 4, 5 and 6 show inreval and average of turnaround time and number arrival flights from airport A to B, departure flights from airport A to B and scheduled departure flights from airport B to C via day time for OO, AA and WN airlines respectively. <br/>
 In figure 4, all of the airlines have the maximum turnaround time around 10 pm based on the arrival time from airports A to B. Between 4 am to 6 pm the turnaround time is more or less constante. From 6 pm to 10 pm, turnaround time increases up to 6 hours. Then from 10 pm to 4 am of next day turnaround time decreases. The inreval turnaround time is shoter between 1 am to 6 am than other times of day. we expected that turnaround time goes up where the airport is crowded and there are the most number flights in  the airport but this figure showes revere results and turnaround time is independent of number of flights. The number of flights depend the arrival time and their airline. Forexample during day, there is more number of flights for all airlines. Airline WN has the most of flights.  <br/>
@@ -109,8 +102,13 @@ Carefully investigating figure 3, we observe that the TAT for all three airlines
 </p> <br/>
 <b>Figure 6</b> Illustrate the scheduled departure time from airports B to C of OO, AA and WN airlines (from left to right). Blue points and light blue lines show average and interval of Turnaround time via time of day respectively.  Red points is number flights during the day. 
 </p>
-
-## 3.2. Predict turnaround time classes 
+## 4. Modeling and results
+<p align='justify'>
+As explained we follow three steps to predict the turnaround time. First step is to explorate date as exploratory data analysis (EDA). <br/>
+Second step is to build a binary classification model to find if a flight belongs to distribution1 (turnaround time less than four hours) or the distribution2 (turnaround time more than four hours). We apply Logistic Regression, k-Nearest Neighbors and, Random Forest Classifier to this problem. In the next section, we’ll show precision, recall and confusion matrix  to compare the models' results. <br />
+For the third step, after clustering the data, we have a regression problem and we apply machine learning techniques Linear Regression, Gradient Boosting Regressor, and Random Forest Regressor to make a prediction for turnaround time. We use root mean square (RMS) as the parameter of performance of the models and finding the best model. 
+</p>
+### 4.1. Predict turnaround time classes 
 <p align='justify'>  
 Since there are two distributions, we apply classification methods Logistic Regression, k-Nearest Neighbors and Random Forest Classifier to obtain the best model. We find out the best model based on precision and recall. <br />
 In figure 7 we show diffusion matrices for OO, AA and WN airlines. In table 2, we compared precision, recall and f score to determinate the best model. Interestingly one machine learning method is not always the winner. Based on our results (table 2), the best model is Logistic Regression and Random Forest Classifier for OO and AA airlines respectively. For WN airlines, Logistic Regression, and Random Forest Classifier give the same recall and precision. <br />
@@ -174,11 +172,11 @@ Figure 8 shows the feature importance for AA, OO, and WN airlines. For these air
 
 <b>Figure 8</b> The feature importance for airlines OO, AA and WN.  From above to below, the first figure shows the most feature of OO airlines based on Logistic Regression model, next figure is the most feature of OO airlines based on Random Forest classifier and the last two figures are for WN airlines based on Logistic Regression and Random Forest classifier respectively. The features importance for AA and WN airlines based on Random Forest classifier are mostly the same.
 
-### 3.3. Modeling data to predict turnaround time based on knowing its distribution
+### 4.2. Modeling data to predict turnaround time based on knowing its distribution
 <p align='justify'> 
 For the next step we apply Linear Regression, Gradient Boosting Regressor, and Random Forest Regressor to each class. We apply each of these techniques to the training data and then apply the trained model to the cross validation data to find the best model. To evaluate the models we use the root mean square error (RMSE). In Table 3 we show the RMSE results for cross validation and base model. We use the mean as the base model. Also in the table we show the mean of cross validation (CV) data and mean of predicted cross validation (PCV) data.  This results show that Linear Regression is not a good model for OO airline since the predicted RMSE is much bigger than the baseline. However, Gradient Boosting Regressor gives much better results with predicted RMSE almost half the baseline RMSE. <br /> 
-Fig 9 shows histogram of cross validation data and predicted for OO, AA, and WN airlines. The predicted target comes from the Gradient Boosting Regressor model as the best model.
-For the next step we find the feature importance from the Gradient Boosting Regressor model. Fig 10 shows the first ten feature importance of distribution1 and distribution2 for OO, AA, WN airlines. Based on this plots, arrival hour from airport A to B, scheduled departure hour from A to B and arrival delay from A to B are the most important features for distribution1. Scheduled departure hour, delay in arrival from A to B and departure hour from A to B are the most important features for distribution2. <br />
+Figure 9 shows histogram of cross validation data and predicted for OO, AA, and WN airlines. The predicted target comes from the Gradient Boosting Regressor model as the best model.
+For the next step we find the feature importance from the Gradient Boosting Regressor model. Figure 10 shows the first ten feature importance of distribution1 and distribution2 for OO, AA, WN airlines. Based on this plots, arrival hour from airport A to B, scheduled departure hour from A to B and arrival delay from A to B are the most important features for distribution1. Scheduled departure hour, delay in arrival from A to B and departure hour from A to B are the most important features for distribution2. <br />
 </p>
 <table> 
     <caption><b>Table 3</b>  Comparison Linear Regression, Gradient Boosting Regressor, and Random Forest Regressor models to predict the turnaround time B. Gradient Boosting Regressor model is the best model for distribution1 and distribution2 of OO, AA, and WN airlines. 'RMSE CV&amp;PCV'and 'RMSE CV&amp;mean_CV'are RMSE of cross validation and predicted cross validation data and RMSE of cross validation and average of cross validationndata. 'Mean Data', Mean CV' and 'Mean PCV' are averagne of train data, cross validation and predicted cross validation data.  </caption> 
@@ -239,7 +237,7 @@ For the next step we find the feature importance from the Gradient Boosting Regr
 </p>
 <b> Figure 10</b> The ten most important features of OO, AA, WN airlines. Left and right sides are for distribution1 and distribution2 respectively. From top to bottom we have the most features of OO, AA and WN airlines. These results come from the Gradient Boosting Regressor model as the best model that we have.  The three most important features of OO, AA and WN airlines are the same based on their distributions. ARRIVAL_HOUR_AB, SCHEDULED_DEPARTURE_HOUR_BC, and APPRIVAL_DELAY_AB for distribution1 and SCHEDULED_DEPARTURE_HOUR_BC, APPRIVAL_DELAY_AB, and DEPARTURE_HOUR_AB for distribution2 are the three most important features of OO, AA, and WN airlines.
 
-### 3.4. Apply the best models to test data (unseen data)
+### 4.3. Apply the best models to test data (unseen data)
 <p align='justify'> 
 To measure the performance of our models with unseen (US) data we apply the best model from classification to find the class of each test data and then apply the best regression model to predict the TAT. In Table 4 we summarize our results for OO, AA and WN airlines. Our modeling results clearly outperforms the baseline with much smaller RMSE. 
 </p>
@@ -251,12 +249,12 @@ To measure the performance of our models with unseen (US) data we apply the best
         <td>WN</td><td>Random Forest Classifier + Gradient Boosting Regressor models</td><td>0.000691</td><td>0.0095490</td><td>2.293647</td><td>2.293288</td> </tr> <tr>
     </table>
 
-## 4. Conclusions
+## 5. Conclusions
 <p align='justify'> 
 In this project, we predict turnaround time based on the flight data of 2015 for Southwest Airlines (WN), American Airlines (AA) and SkyWest Airlines (OO) as the most popular airlines in the USA. For this prediction, we apply the supervised learning techniques. First interesting thing is there are two distributions in the turnaround time histogram based on duration of turnaround time is less and more than four hours. The Random Forest Classifier model is the best model to predict distributions. The most important features are scheduled departure month from airport B to C, airports A, arrival time to airport B, scheduled departure from airport B. The most important features of AA and WN airlines are like each other. <br/>
 In the next step, the gradient boosting model as the best model, is applied to predict turnaround time for those three airlines. For this fitting the most important features are arrival hour from airport A to B, scheduled departure hour from A to B and arrival delay from A to B for distribution1, and scheduled departure hour, delay in arrival from A to B and departure hour from A to B for distribution2.
 <p/>
-## 5. Setup
+## 6. Setup
 In this repository, there is two folders:<br/>
 1- notebooks: all files in Jupyter notebook <br/>
 2- src : all files save with .py <br/>
