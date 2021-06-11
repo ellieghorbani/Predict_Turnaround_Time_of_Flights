@@ -50,26 +50,26 @@ After calculating turnaround time B, the time columns are divided into hour, day
 In this study, the database included 5 million recorded flights for the fourteen most popular airlines in the USA in 2015, table 1. We only focus on analyzing data of the airlines with more than 10 percent of total flights. Based on table 1, Airlines WN, AA, and OO with %22, %12, and %10 number flights, respectively, have the most stock of flights.<br />
 The datafram is divided into 1217135, 673631, and 554286 tables for WN, AA, and OO airlines respectively. Every datafram has 20 columns as follow: 'airport_A', 'airport_B', 'airport_C', 'DEPARTURE_DELAY_AB', 'ARRIVAL_DELAY_AB', 'ELAPSED_TIME_AB', 'DISTANCE_AB', 'DISTANCE_BC', 'DEPARTURE_HOUR_AB', 'DEPARTURE_weekday_AB', 'DEPARTURE_day_AB', 'DEPARTURE_month_AB', 'ARRIVAL_HOUR_AB', 'ARRIVAL_weekday_AB', 'ARRIVAL_day_AB',  'ARRIVAL_month_AB', 'SCHEDULED_DEPARTURE_HOUR_BC', 'SCHEDULED_DEPARTURE_weekday_BC', 'SCHEDULED_DEPARTURE_day_BC', and 'SCHEDULED_DEPARTURE_month_BC' as features and ‘turnaround time_B’ as target. <br />
 </p>
-<b>Table 1</b> Total flights were 5483816 which carried out with the fourteen most popular airlines in the USA in 2015. The dataframe includes 20 columns.
-
-|Name airline                |Number data|Number columns|Percentage number flights|
-|----------------------------|-----------|--------------|-------------------------| 
-|American Airlines (AA)      |673631     |20            |%12.28		          |
-|Alaska Airlines  (AS)	     |168105     |20            |%3.1         		  |
-|JetBlue Airlines (B6)	     |252122     |20            |%4.6			  |
-|Delta airlines (DL)	     |830012     |20            |%15.1			  |
-|Eva Air Airlines (EV)	     |528429     |20  		|%9.6			  |
-|Frontier Airlines (f9)	     |87499      |20  		|%1.6			  |
-|Hawaiian Airlines (HA)	     |73804      |20  		|%1.3			  |
-|American Eagle Airlines (MQ)|265283     |20  		|%4.8			  |
-|Spirit Wings Airlines (NK)  |112357     |20  		|%2.1			  |
-|SkyWest Airlines (OO)	     |554286     |20  		|%10.1			  |
-|United Airlines (UA)	     |471848     |20  		|%8.6			  |
-|United States Airlines (US) |189048     |20  		|%3.4			  |
-|Virgin America Airlines (VX)|60257      |20  		|%1.1			  |
-|Southwest Airlines (WN)     |1217135    |20  		|%22.2			  |		
-|Total Airlines in 2015	     |5483816    |20  		|%100			  |
-
+<table> 
+    <caption><b>Table 1</b>  Total flights were 5483816 which carried out with the fourteen most popular airlines in the USA in 2015. The dataframe includes 20 columns.  </caption> 
+    <tr align="center"> <th>Airlines</th><th>Number Data</th> <th>Percentage number flights</td></tr> 
+    <td align="center">American Airlines (AA)</td><td align="center">673631 </td><td align="center">%12.28</td></tr>
+    <td align="center">Alaska Airlines  (AS)</td><td align="center">168105      </td><td align="center">%3.1</td></tr>
+    <td align="center">JetBlue Airlines (B6)</td><td align="center">252122      </td><td align="center">%4.6</td></tr>
+    <td align="center">Delta airlines (DL)  </td><td align="center">830012      </td><td align="center" >%15.1</td></tr>
+    <td align="center">Eva Air Airlines (EV)</td><td align="center">528429      </td><td align="center">%9.6	</td></tr>
+    <td align="center">Frontier Airlines (f9) </td><td align="center">87499       </td><td align="center">%1.6</td></tr>
+    <td align="center">Hawaiian Airlines (HA) </td><td align="center">73804       </td><td align="center">%1.3	</td></tr>
+    <td align="center">American Eagle Airlines (MQ) </td><td align="center">265283  </td><td align="center">%4.8	</td></tr>
+    <td align="center">Spirit Wings Airlines (NK) </td><td align="center">112357    </td><td align="center">%2.1	</td></tr>
+    <td align="center">SkyWest Airlines (OO) </td><td align="center">554286   </td><td align="center">%10.1	</td></tr>
+    <td align="center">United Airlines (UA) </td><td align="center">471848     </td><td align="center">%8.6	</td></tr>
+    <td align="center">United States Airlines (US) </td><td align="center">189048  </td><td align="center">%3.4	</td></tr>
+    <td align="center">Virgin America Airlines (VX) </td><td align="center">60257   </td><td align="center">%1.1	</td></tr>
+    <td align="center">Southwest Airlines (WN) </td><td align="center">1217135  </td><td align="center">%22.2	</td></tr>
+    <td align="center">Total Airlines in 2015	 </td><td align="center">5483816   </td><td align="center">%100	</td></tr>   
+</table>
+    
 <p align='justify'> 
  Before we apply our supervised machine learning technique to this problem, we divide the data to train, cross validation and test and for the test data we keep 10 percent of data from each airline which helps us to measure the performance for unseen data. We train our model with  the training and cross validation data and then use test data to predict turnaround time for unseen data.<br/> 
  </p>
