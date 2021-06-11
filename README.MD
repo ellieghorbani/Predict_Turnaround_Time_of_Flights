@@ -254,8 +254,9 @@ To measure the performance of our models with unseen (US) data we apply the best
 ## 5. Conclusions
 <p align='justify'> 
 In this project, we predict turnaround time based on the flight data of 2015 for Southwest Airlines (WN), American Airlines (AA) and SkyWest Airlines (OO) as the most popular airlines in the USA. For this prediction, we apply the supervised learning techniques. First interesting thing is there are two distributions in the turnaround time histogram based on duration of turnaround time is less and more than four hours. The Random Forest Classifier model is the best model to predict distributions. The most important features are scheduled departure month from airport B to C, airports A, arrival time to airport B, scheduled departure from airport B. The most important features of AA and WN airlines are like each other. <br/>
-In the next step, the gradient boosting model as the best model, is applied to predict turnaround time for those three airlines. For this fitting the most important features are arrival hour from airport A to B, scheduled departure hour from A to B and arrival delay from A to B for distribution1, and scheduled departure hour, delay in arrival from A to B and departure hour from A to B for distribution2.
+In the next step, the gradient boosting model as the best model, is applied to predict turnaround time for those three airlines. For this fitting the most important features are arrival hour from airport A to B, scheduled departure hour from A to B and arrival delay from A to B for distribution1, and scheduled departure hour, delay in arrival from A to B and departure hour from A to B for distribution2.<br/>
 <p/>
+
 ## 6. Setup
 In this repository, there is two folders:<br/>
 1- notebooks: all files in Jupyter notebook <br/>
