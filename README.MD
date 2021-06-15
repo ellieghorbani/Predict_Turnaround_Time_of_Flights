@@ -119,7 +119,7 @@ Figure 8 shows the feature importance for AA, OO, and WN airlines. For these air
   <img src="./images/confusion_matrix_OO_LogisticRegression.png" width='400'>
   <img src="./images/confusion_matrix_AA_RandomForestClassifier.png" width='400'> <br/>
   <img src="./images/confusion_matrix_WN_LogisticRegression.png" width ='400'>
-  <img src="./images/confusion_matrix_WN_RandomForestClassifier.png" width ='368'>
+  <img src="./images/confusion_matrix_WN_RandomForestClassifier.png" width ='400'>
 </p>
 <p align='justify'>
 <b>Figure 7</b> The confusion matrix for OO airline (Logistic Regression model), AA airline (Random Forest Classifier), WN airline (Logistic Regression) and WN airline (Random Forest Classifier). The classes are shown with labels 0 and 1. <br/>
